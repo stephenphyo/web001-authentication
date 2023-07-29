@@ -1,0 +1,109 @@
+.landing {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.landing_form {
+    --width: 500px;
+    --height: 350px;
+}
+
+.landing_form {
+    position: relative;
+    width: var(--width);
+    height: var(--height);
+    border-radius: 8px;
+    background-color: #1c1c1c;
+    overflow: hidden;
+    user-select: none;
+}
+
+.landing_form::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: var(--width);
+    height: var(--height);
+    background: linear-gradient(0deg, transparent, var(--color-primary), var(--color-primary));
+    transform-origin: bottom right;
+    animation: animation 6s linear infinite;
+}
+
+.landing_form::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: var(--width);
+    height: var(--height);
+    background: linear-gradient(0deg, transparent, var(--color-secondary), var(--color-secondary));
+    transform-origin: bottom right;
+    animation: animation 6s linear infinite;
+    animation-delay: -3s;
+}
+
+.landing_form_container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 30px;
+    inset: 5px;
+    border-radius: 6px;
+    background-color: var(--color-dark);
+    z-index: 2;
+}
+
+.landing_form .form_header {
+    gap: 20px;
+}
+
+.landing_form .form_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: fit-content;
+    margin-top: 35px;
+}
+
+#btn_login,
+#btn_register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
+    padding: 7px 20px;
+    font-family: 'Poppins';
+    border-radius: 20px;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+#btn_login {
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+#btn_login:hover {
+    color: #1e1e1e;
+    background-color: var(--color-primary);
+}
+
+#btn_register {
+    color: var(--color-secondary);
+    border: 2px solid var(--color-secondary);
+}
+
+#btn_register:hover {
+    color: #fafafa;
+    background-color: var(--color-secondary);
+}
+
+@media screen and (max-width: 500px) {
+    .landing_form {
+        width: 90%;
+        height: calc(var(--height) + var(--height) * 0.2);
+    }
+}
